@@ -1,0 +1,465 @@
+:root {
+  --bg: #0a1119;
+  --bg-2: #141e2a;
+  --card: rgba(18, 26, 36, 0.88);
+  --card-border: rgba(255, 179, 0, 0.2);
+  --text: #f5f7fa;
+  --muted: #a5b1bf;
+  --accent: #ffb300;
+  --accent-2: #ff5a1f;
+  --accent-3: #39d98a;
+  --radius-xl: 24px;
+  --radius-lg: 18px;
+  --shadow: 0 18px 54px rgba(0, 0, 0, 0.38);
+  --wrap: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(255, 179, 0, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 59, 48, 0.14), transparent 32%),
+    radial-gradient(circle at bottom center, rgba(57, 217, 138, 0.08), transparent 34%),
+    linear-gradient(180deg, var(--bg) 0%, #0f1824 42%, #080d14 100%);
+  line-height: 1.55;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.wrap {
+  width: min(calc(100% - 32px), var(--wrap));
+  margin: 0 auto;
+}
+
+.pulse-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+
+.pulse-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(18px);
+  background: rgba(9, 15, 23, 0.8);
+  border-bottom: 1px solid rgba(255, 179, 0, 0.12);
+}
+
+.pulse-header__inner {
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.pulse-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pulse-brand__mark {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 10px 26px rgba(255, 179, 0, 0.3);
+}
+
+.pulse-brand__text {
+  display: grid;
+  gap: 2px;
+}
+
+.pulse-brand__text strong {
+  font-size: 16px;
+}
+
+.pulse-brand__text small,
+.pulse-kicker,
+.pulse-bonus__label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+}
+
+.pulse-brand__text small {
+  color: var(--muted);
+}
+
+.pulse-nav,
+.pulse-actions,
+.pulse-hero__buttons,
+.pulse-bonus__buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pulse-nav a {
+  color: var(--muted);
+  padding: 10px 14px;
+  border-radius: 999px;
+  transition: 0.2s ease;
+}
+
+.pulse-nav a:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+.pulse-button {
+  min-height: 46px;
+  padding: 13px 20px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  transition: transform 0.18s ease;
+}
+
+.pulse-button:hover {
+  transform: translateY(-1px);
+}
+
+.pulse-button--main {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 14px 28px rgba(255, 90, 31, 0.3);
+}
+
+.pulse-button--soft,
+.pulse-button--ghost {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pulse-hero {
+  padding: 34px 0 18px;
+}
+
+.pulse-hero__grid,
+.pulse-start__grid,
+.pulse-copy__grid {
+  display: grid;
+  gap: 18px;
+}
+
+.pulse-hero__grid {
+  grid-template-columns: 1.12fr 0.88fr;
+}
+
+.pulse-start__grid {
+  grid-template-columns: 1.15fr repeat(3, minmax(0, 1fr));
+}
+
+.pulse-copy__grid {
+  grid-template-columns: 1.08fr 0.92fr;
+}
+
+.pulse-hero__copy,
+.pulse-bonus,
+.pulse-start__main,
+.pulse-step,
+.pulse-game,
+.pulse-copy__main,
+.pulse-copy__side,
+.pulse-faq-item,
+.pulse-footer__inner,
+.pulse-win {
+  padding: 24px;
+}
+
+.pulse-kicker,
+.pulse-bonus__label {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #d8efff;
+  margin-bottom: 16px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 14px;
+  line-height: 1.08;
+}
+
+h1 {
+  font-size: clamp(36px, 5.4vw, 60px);
+}
+
+h2 {
+  font-size: clamp(30px, 4vw, 42px);
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.pulse-lead,
+.pulse-section-head > p,
+.pulse-bonus p,
+.pulse-win span,
+.pulse-start__main p,
+.pulse-step p,
+.pulse-game p,
+.pulse-copy__main p,
+.pulse-copy__side li,
+.pulse-faq-item p,
+.pulse-footer p {
+  color: var(--muted);
+}
+
+.pulse-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.pulse-stats-grid article {
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pulse-stats-grid strong {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.pulse-placeholder {
+  min-height: 190px;
+  border-radius: var(--radius-lg);
+  border: 1px dashed rgba(255, 179, 0, 0.34);
+  background:
+    linear-gradient(135deg, rgba(255, 179, 0, 0.18), rgba(255, 59, 48, 0.12)),
+    rgba(255, 255, 255, 0.03);
+  display: grid;
+  place-items: center;
+  color: #ffe7bf;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+section {
+  padding: 18px 0;
+}
+
+.pulse-section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.pulse-section-head > p {
+  margin: 0;
+  max-width: 58ch;
+}
+
+.pulse-wins__board,
+.pulse-game-grid,
+.pulse-faq-list {
+  display: grid;
+  gap: 14px;
+}
+
+.pulse-wins__board {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pulse-win strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.pulse-step span {
+  display: inline-grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  font-weight: 900;
+  margin-bottom: 14px;
+}
+
+.pulse-game-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pulse-game {
+  overflow: hidden;
+}
+
+.pulse-game__body {
+  padding-top: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.pulse-copy__side ul {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+.pulse-faq-item {
+  overflow: hidden;
+}
+
+.pulse-faq-item button {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0;
+  text-align: left;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.pulse-faq-item div {
+  display: none;
+  padding-top: 14px;
+}
+
+.pulse-faq-item[data-open="true"] div {
+  display: block;
+}
+
+.pulse-footer {
+  padding: 22px 0 34px;
+}
+
+.pulse-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.pulse-footer p {
+  margin: 8px 0 0;
+  max-width: 58ch;
+}
+
+@keyframes signalPulse {
+  0% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.72);
+  }
+  70% {
+    opacity: 0.78;
+    box-shadow: 0 0 0 10px rgba(255, 59, 48, 0);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(255, 59, 48, 0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .pulse-hero__grid,
+  .pulse-start__grid,
+  .pulse-copy__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pulse-wins__board,
+  .pulse-game-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pulse-nav {
+    display: none;
+  }
+
+  .pulse-header__inner {
+    min-height: auto;
+    padding: 14px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    width: min(calc(100% - 20px), var(--wrap));
+  }
+
+  .pulse-hero__copy,
+  .pulse-bonus,
+  .pulse-start__main,
+  .pulse-step,
+  .pulse-game,
+  .pulse-copy__main,
+  .pulse-copy__side,
+  .pulse-faq-item,
+  .pulse-footer__inner,
+  .pulse-win {
+    padding: 18px;
+  }
+
+  .pulse-actions,
+  .pulse-hero__buttons,
+  .pulse-bonus__buttons {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .pulse-button {
+    width: 100%;
+  }
+
+  .pulse-stats-grid,
+  .pulse-wins__board,
+  .pulse-game-grid {
+    grid-template-columns: 1fr;
+  }
+}
