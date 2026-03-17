@@ -21,6 +21,13 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -186,7 +193,7 @@ button {
 }
 
 .pulse-hero {
-  padding: 34px 0 18px;
+  padding: 40px 0 28px;
 }
 
 .pulse-hero__grid,
@@ -277,14 +284,17 @@ main p,
 .pulse-bonus p,
 .pulse-start__main p,
 .pulse-step p,
-.pulse-win span {
+.pulse-section-head > p,
+.pulse-faq-item__answer p {
   text-align: justify;
   hyphens: auto;
   -webkit-hyphens: auto;
-  word-spacing: -0.02em;
+  word-spacing: 0.01em;
 }
-.pulse-section-head > p {
-  text-align: justify;
+
+.pulse-copy__main p,
+.pulse-copy__main ul {
+  max-width: 72ch;
 }
 
 .pulse-stats-grid {
@@ -346,7 +356,7 @@ section {
 .pulse-game-grid,
 .pulse-faq-list {
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .pulse-wins__board {
@@ -393,6 +403,7 @@ section {
 
 .pulse-faq-item {
   overflow: hidden;
+  transition: box-shadow 0.2s ease;
 }
 
 .pulse-faq-item button {
@@ -404,19 +415,28 @@ section {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 0;
+  padding: 16px 0;
   text-align: left;
-  font-weight: 800;
+  font-weight: 700;
   cursor: pointer;
+  transition: color 0.2s ease;
+}
+.pulse-faq-item button:hover {
+  color: var(--accent);
 }
 
-.pulse-faq-item div {
+.pulse-faq-item__answer {
   display: none;
   padding-top: 14px;
+  padding-left: 0;
 }
 
-.pulse-faq-item[data-open="true"] div {
+.pulse-faq-item[data-open="true"] .pulse-faq-item__answer {
   display: block;
+}
+
+.pulse-faq-item__answer p {
+  margin: 0;
 }
 
 .pulse-footer {
@@ -429,7 +449,8 @@ section {
   justify-content: space-between;
   gap: 24px;
   flex-wrap: wrap;
-  padding: 28px 32px;
+  padding: 32px 36px;
+  border-radius: var(--radius-xl);
 }
 
 .pulse-footer p {
@@ -476,7 +497,8 @@ section {
 
 @media (max-width: 640px) {
   .wrap {
-    width: min(calc(100% - 20px), var(--wrap));
+    width: min(calc(100% - 24px), var(--wrap));
+    padding: 0 12px;
   }
 
   .pulse-hero__copy,
@@ -501,11 +523,24 @@ section {
 
   .pulse-button {
     width: 100%;
+    min-height: 48px;
   }
 
   .pulse-stats-grid,
   .pulse-wins__board,
   .pulse-game-grid {
     grid-template-columns: 1fr;
+  }
+
+  body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+}
+
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
   }
 }

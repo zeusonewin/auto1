@@ -17,18 +17,21 @@
 
     if (!button) return;
 
-    button.addEventListener('click', () => {
+    button.addEventListener('click', function () {
       const isOpen = item.getAttribute('data-open') === 'true';
 
       document.querySelectorAll('.pulse-faq-item').forEach((entry) => {
         entry.setAttribute('data-open', 'false');
         const marker = entry.querySelector('b');
+        const btn = entry.querySelector('button');
         if (marker) marker.textContent = '+';
+        if (btn) btn.setAttribute('aria-expanded', 'false');
       });
 
       if (!isOpen) {
         item.setAttribute('data-open', 'true');
         if (sign) sign.textContent = '−';
+        if (button) button.setAttribute('aria-expanded', 'true');
       }
     });
   });
